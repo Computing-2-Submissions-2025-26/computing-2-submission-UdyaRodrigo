@@ -1,3 +1,5 @@
+// still needs further edits, and comments and more graphics, any input or improvements will be useful
+
 import assert from "node:assert/strict";
 import Battleships from ".../Battleships.js";
 
