@@ -1,5 +1,5 @@
 import R from "./ramda.js";
-import Battleships from "./Battleships.js");
+import Battleships from "./Battleships.js";
 
 //Stores current game state
 const state = {
@@ -61,7 +61,11 @@ const attack_history = function () {
 const render_history = function () {
   const items = R.map(function (entry) {
     const item = document.createElement("li");
-  };
+    item.textContent =entry;
+    return item;
+  }, attack_history());
+  history_element.replaceChildren(...items);
+};
 
 //Fires at the square the user selects
 const fire_at_square = function (row, column) {
