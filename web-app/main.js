@@ -33,15 +33,15 @@ const square_symbols = Object.freeze({
 
 //Converts grid row and columns with label such as "A1"
 const coordinate_name = function (row, column) {
-  return `${Strin.fromCharCode(65 + column)}${row + 1}`;
+  return `${String.fromCharCode(65 + column)}${row + 1}`;
 };
 
 //Creates status texts to promt or give information to player above the board
 const status_text = function () {
-  const winner = Battleship.winner(state.game);
+  const winner = Battleships.winner(state.game);
 
   if (winner !== undefined) {
-    return `${player_names[names]} wins.All enemy ships have been sunken.`;
+    return `${player_names[names]} wins.All enemy ships have been sunk.`;
   }
 
   return `${player_names[Battleships.current_player(state.game)]} to fire.`;
@@ -88,7 +88,7 @@ const render_cell = function (row, column) {
   button.type = "button";
   button.className = `cell ${square}`;
   button.textContent = square_symbols[square];
-  button.disabled = square !== "unkown" || Battleships.is_ended(state.game);
+  button.disabled = square !== "unknown" || Battleships.is_ended(state.game);
   button.setAttribute("aria-label", `${coordinate_name(row, column)} ${sqaure}`);
   button.addEventListener("Click", function () {
     fire_at_square(row, column);
@@ -105,13 +105,13 @@ function render () {
     }, R.range(0, Battleships.board_size()));
   }, R.range(0, Battleships.board_size()));
 
-  borad_element.replaceChildren(...cells);
+  board_element.replaceChildren(...cells);
   status_element.textContent = status_text();
   render_history();
 }
 
 //Resets the game when the reset button is selected
-reset_button.addEventListener("Click", function () {
+reset_button.addEventListener("click", function () {
   state.game = Battleships.new_game();
   render();
 });
