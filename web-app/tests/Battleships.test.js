@@ -2,7 +2,7 @@
 
 import assert from "node:assert/strict";
 import Battleships from ".../Battleships.js";
-
+ 
 const fire_sequence = function (moves) {
   return moves.reduce(function (game, [row,column]) {
     return Battleships.fire_at(
