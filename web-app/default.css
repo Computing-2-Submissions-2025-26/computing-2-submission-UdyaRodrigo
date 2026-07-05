@@ -111,7 +111,7 @@ h1 {
 .cell {
   aspect-ratio: 1;
   background-color: var(--blue);
-  background-image: url("./assets/sea.svg");
+  background-image: url("./assets/sea.png");
   background-position: center;
   background-size: cover;
   border: 2px solid #668aa3;
@@ -133,12 +133,12 @@ h1 {
 }
 
 .cell.hit {
-  background-image: url("./assets/hit.svg");
+  background-image: url("./assets/hit.png");
   color: var(--hit);
 }
 
 .cell.miss {
-  background-image: url("./assets/miss.svg");
+  background-image: url("./assets/miss.png");
   color: var(--miss);
 }
 
@@ -155,15 +155,15 @@ h1 {
 }
 
 .hit_marker {
-  background-image: url("./assets/hit.svg");
+  background-image: url("./assets/hit.png");
 }
 
 .miss_marker {
-  background-image: url("./assets/miss.svg");
+  background-image: url("./assets/miss.png");
 }
 
 .sea_marker {
-  background-image: url("./assets/sea.svg");
+  background-image: url("./assets/sea.png");
 }
 
 #history {
