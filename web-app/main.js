@@ -41,7 +41,7 @@ const status_text = function () {
   const winner = Battleships.winner(state.game);
 
   if (winner !== undefined) {
-    return `${player_names[names]} wins.All enemy ships have been sunk.`;
+    return `${player_names[winner]} wins.All enemy ships have been sunk.`;
   }
 
   return `${player_names[Battleships.current_player(state.game)]} to fire.`;
@@ -51,7 +51,12 @@ const status_text = function () {
 const attack_history = function () {
   return R.chain(function (player) {
     return R.map(function ([row, column]) {
-      const result = Battleships.attack_result(state.game, player, row, column);
+      const result = Battleships.attack_result(
+        state.game, 
+        player, 
+        row, 
+        column
+      );
       return `${player_names[player]} fired at ${coordinate_name(row, column)}: ${result}`;
     }, state.game.attacks[String(player)]);
   }, [1, 2]);
@@ -61,9 +66,10 @@ const attack_history = function () {
 const render_history = function () {
   const items = R.map(function (entry) {
     const item = document.createElement("li");
-    item.textContent =entry;
+    item.textContent = entry;
     return item;
   }, attack_history());
+  
   history_element.replaceChildren(...items);
 };
 
@@ -89,7 +95,11 @@ const render_cell = function (row, column) {
   button.className = `cell ${square}`;
   button.textContent = square_symbols[square];
   button.disabled = square !== "unknown" || Battleships.is_ended(state.game);
-  button.setAttribute("aria-label", `${coordinate_name(row, column)} ${sqaure}`);
+  button.setAttribute(
+    "aria-label", 
+    `${coordinate_name(row, column)} ${sqaure}`
+  );
+  
   button.addEventListener("Click", function () {
     fire_at_square(row, column);
   });
@@ -98,7 +108,7 @@ const render_cell = function (row, column) {
 }:
 
 //Renders the whole page from the current state
-function render () {
+function render() {
   const cells = R.chain(function (row) {
     return R.map(function (column) {
       return render_cell(row, column);
