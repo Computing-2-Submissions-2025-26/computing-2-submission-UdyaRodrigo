@@ -1,0 +1,189 @@
+:root {
+  --page: #eef6fb;
+  --panel: #ffffff;
+  --ink: #14212b;
+  --muted: #5b6b7a;
+  --navy: #16324f;
+  --blue: #b9ddf2;
+  --line: #c8d7e2;
+  --hit: #b91c1c;
+  --miss: #475569;
+  --focus: #f0b429;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--page);
+  color: var(--ink);
+  margin: 0;
+}
+
+.site_header,
+.game_layout {
+  margin: 0 auto;
+  max-width: 1050px;
+  padding: 24px;
+}
+
+.site_header {
+  align-items: center;
+  border-bottom: 3px solid var(--navy);
+  display: flex;
+  gap: 18px;
+}
+
+.title_icon {
+  height: 72px;
+  width: 72px;
+}
+
+h1 {
+  font-size: 44px;
+  margin: 0 0 6px 0;
+}
+
+.site_header p,
+#history,
+.legend {
+  color: var(--muted);
+}
+
+.game_layout {
+  display: grid;
+  gap: 28px;
+  grid-template-columns: minmax(330px, 620px) 1fr;
+}
+
+.game_panel,
+.side_panel {
+  background: var(--panel);
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.status_bar {
+  align-items: center;
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+#status {
+  color: var(--navy);
+  font-size: 22px;
+  font-weight: bold;
+  margin: 0;
+}
+
+#reset {
+  background: var(--navy);
+  border: 2px solid var(--navy);
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 10px 16px;
+}
+
+#reset:hover,
+#reset:focus-visible,
+.cell:focus-visible {
+  outline: 4px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.board {
+  background: var(--navy);
+  border: 4px solid var(--navy);
+  border-radius: 8px;
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(6, 1fr);
+  padding: 12px;
+}
+
+.cell {
+  aspect-ratio: 1;
+  background-color: var(--blue);
+  background-image: url("./assets/sea.svg");
+  background-position: center;
+  background-size: cover;
+  border: 2px solid #668aa3;
+  border-radius: 6px;
+  color: var(--ink);
+  cursor: pointer;
+  display: grid;
+  font-size: 30px;
+  font-weight: bold;
+  place-items: center;
+}
+
+.cell:hover:not(:disabled) {
+  filter: brightness(1.08);
+}
+
+.cell:disabled {
+  cursor: default;
+}
+
+.cell.hit {
+  background-image: url("./assets/hit.svg");
+  color: var(--hit);
+}
+
+.cell.miss {
+  background-image: url("./assets/miss.svg");
+  color: var(--miss);
+}
+
+.legend_marker {
+  background-position: center;
+  background-size: cover;
+  border: 1px solid #668aa3;
+  border-radius: 4px;
+  display: inline-block;
+  height: 28px;
+  margin-right: 8px;
+  vertical-align: middle;
+  width: 28px;
+}
+
+.hit_marker {
+  background-image: url("./assets/hit.svg");
+}
+
+.miss_marker {
+  background-image: url("./assets/miss.svg");
+}
+
+.sea_marker {
+  background-image: url("./assets/sea.svg");
+}
+
+#history {
+  line-height: 1.6;
+  padding-left: 22px;
+}
+
+.sr_only {
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
+}
+
+@media (max-width: 760px) {
+  .game_layout {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    font-size: 34px;
+  }
+}
