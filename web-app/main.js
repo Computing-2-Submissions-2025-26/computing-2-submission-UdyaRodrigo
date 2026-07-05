@@ -105,7 +105,7 @@ const render_cell = function (row, column) {
   });
   
   return button;
-}:
+};
 
 //Renders the whole page from the current state
 function render() {
