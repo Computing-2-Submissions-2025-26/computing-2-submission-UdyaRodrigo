@@ -97,7 +97,7 @@ const render_cell = function (row, column) {
   button.disabled = square !== "unknown" || Battleships.is_ended(state.game);
   button.setAttribute(
     "aria-label", 
-    `${coordinate_name(row, column)} ${sqaure}`
+    `${coordinate_name(row, column)} ${square}`
   );
   
   button.addEventListener("Click", function () {
