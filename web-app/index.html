@@ -1,9 +1,46 @@
 <!-- In HTML Comments are written like this -->
 <!-- They can all be removed for your apps -->
+<!-- In HTML Comments are written like this -->
+<!-- They can all be removed for your apps -->
 <!doctype html> <!-- This first line tells browsers to expect modern standard html 5 -->
 <html lang="en-gb"> <!-- This is indicates the page is written in British English, useful for accessibility -->
-<meta charset="utf-8"> <!-- This indicates how the file is encoded. utf-8 is standard -->
-<title>Your Web-app Title</title> <!-- All pages need a title, this will be displayed in the browser's title bar -->
-<link rel="stylesheet" href="default.css"> <!-- Import style sheet – default.css -->
-<link rel="icon" href="./assets/favicon.png"> <!-- Import 'Favorites Icon' – favicon.png -->
-<script type="module" src="main.js"></script> <!-- Load the main script. Must be type="module". Have only one of these -->
+    <head>
+        <meta charset="utf-8"> <!-- This indicates how the file is encoded. utf-8 is standard -->
+        <title>Battleships</title> <!-- All pages need a title, this will be displayed in the browser's title bar -->
+        <link rel="stylesheet" href="default.css"> <!-- Import style sheet – default.css -->
+        <link rel="icon" href="./assets/favicon.png"> <!-- Import 'Favorites Icon' – favicon.png -->
+        <script type="module" src="main.js"></script> <!-- Load the main script. Must be type="module". Have only one of these -->
+    </head>
+    <body>
+        <header class="site_header">
+            <img src="./assets/ship.svg" alt="" class="title_icon">
+            <div>
+                <h1>Battleships</h1>
+                <p>Take turns firing at the enemy sea. Sink every ship to win.</p>
+            </div>
+        </header>
+
+        <main class="game_layout">
+            <section class="game_panel" aria-labelledby="game_title">
+                <h2 id="game_title" class="sr_only">Battleships game board</h2>
+                <div class="status_bar">
+                    <p id="status" role="status"></p>
+                    <button id="reset" type="button">Reset</button>
+                </div>
+                <div id="board" class="board" role="grid" aria-label="Target board"></div>
+            </section>
+
+            <aside class="side_panel">
+                <h2>Command Panel</h2>
+                <div class="legend">
+                    <p><span class="legend_marker hit_marker"></span> Hit</p>
+                    <p><span class="legend_marker miss_marker"></span> Miss</p>
+                    <p><span class="legend_marker sea_marker"></span> Unknown sea</p>
+                </div>
+
+                <h2>Attack History</h2>
+                <ol id="history"></ol>
+            </aside>
+        </main>
+    </body>
+</html>
