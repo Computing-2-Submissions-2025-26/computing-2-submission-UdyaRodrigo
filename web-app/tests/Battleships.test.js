@@ -1,7 +1,7 @@
 // still needs further edits, and comments and more graphics, any input or improvements will be useful
 
 import assert from "node:assert/strict";
-import Battleships from "../Battleships.js";
+import Battleships from "../Module.js";
  
 const fire_sequence = function (moves) {
   return moves.reduce(function (game, [row,column]) {
@@ -41,7 +41,18 @@ describe("Attacks", function () {
   
     assert.equal(Battleships.current_player(game), 2);
   });
+ 
+  it("rejects attacking the same square twice", function () {
+    const game = fire_sequence([
+      [0, 0],
+      [5, 5]
+    ]);
   
+    assert.throws(function () {
+      Battleships.fire_at(game, 1, 0, 0);
+    });
+  });
+
   it("reports a hit when a ship occupies the target square", function () {
     const game = Battleships.new_game();
   
