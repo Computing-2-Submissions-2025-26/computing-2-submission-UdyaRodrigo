@@ -100,7 +100,7 @@ const render_cell = function (row, column) {
     `${coordinate_name(row, column)} ${square}`
   );
   
-  button.addEventListener("Click", function () {
+  button.addEventListener("click", function () {
     fire_at_square(row, column);
   });
   
