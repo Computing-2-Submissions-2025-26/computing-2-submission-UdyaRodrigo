@@ -2,6 +2,9 @@
 # Computing 2 Coursework Submission.
 **CID**: [02217137]
 
+Overview:
+Two players take turns on guessing and firing at a square to sink their opponent's ships. The first player to sink all 4 ships will win.
+
 This is the submission template for your Computing 2 Applications coursework submission.
 
 ## Checklist
