@@ -56,13 +56,13 @@ describe("Attacks", function () {
   it("reports a hit when a ship occupies the target square", function () {
     const game = Battleships.new_game();
   
-    assert.equal(Battleships.attack_result(game, 1, 1, 4), "!!! hit !!!");
+    assert.equal(Battleships.attack_result(game, 1, 1, 4), "hit");
   });
   
     it("reports a miss when no ship occupies the target square", function () {
     const game = Battleships.new_game();
   
-    assert.equal(Battleships.attack_result(game, 1, 0, 0), "!!! miss !!!");
+    assert.equal(Battleships.attack_result(game, 1, 0, 0), "miss");
   });
 });
 
